@@ -1,0 +1,13 @@
+[build]
+  command = "pip install -r requirements.txt"
+  publish = "public"
+
+[dev]
+  command = "uvicorn app.main:app --reload"
+  port = 8000
+
+[[redirects]]
+  from = "/api/*"
+  to = "http://localhost:8000/:splat"
+  status = 200
+  force = true
